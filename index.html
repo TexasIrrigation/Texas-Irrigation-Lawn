@@ -68,7 +68,7 @@
  "potentialAction": {
   "@type": "ReserveAction",
   "target": "https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ",
-  "name": "Book a Quote"
+  "name": "Book a Diagnostic"
  },
  "makesOffer": [
   {
@@ -411,6 +411,17 @@
   .form-error{color:#A12B2B; font-size:0.92rem; text-align:center;}
   .form-error a{font-weight:600; text-decoration:underline;}
   form button:disabled{opacity:0.7; cursor:wait;}
+
+  /* Header fit on medium screens */
+  .call-btn{white-space:nowrap;}
+  @media (min-width:901px) and (max-width:1000px){ nav ul{gap:20px;} .header-inner{gap:16px;} }
+  @media (min-width:641px) and (max-width:900px){
+    nav{position:fixed; top:78px; left:0; right:0; background:var(--cream); flex-direction:column; padding:20px 32px; border-bottom:1px solid rgba(14,42,71,0.1); display:none;}
+    nav.open{display:flex;}
+    nav ul{flex-direction:column; gap:18px; width:100%;}
+    .nav-toggle{display:block; order:3; margin-left:16px;}
+    .call-btn{margin-left:auto;}
+  }
 </style>
 </head>
 <body>
@@ -433,7 +444,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener" class="call-btn">Book a Quote</a>
+    <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener" class="call-btn">Book a Diagnostic</a>
   </div>
 </header>
 
@@ -444,7 +455,7 @@
       <h1>We keep water going <em>exactly</em> where your lawn needs it.</h1>
       <p class="lede">Repairs, replacements, diagnostics, installations, and season-round maintenance for irrigation systems across North Texas — done right the first time.</p>
       <div class="hero-ctas">
-        <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener" class="btn-primary">Book a Quote</a>
+        <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener" class="btn-primary">Book a Diagnostic</a>
         <a href="tel:+14699872926" class="btn-ghost">Call (469) 987-2926</a>
       </div>
       <div class="hero-tags">
@@ -505,7 +516,7 @@
         <p>Multi-zone properties, HOAs, and business grounds kept green and compliant year-round.</p>
       </div>
     </div>
-    <p class="quote-note reveal"><strong>Quotes:</strong> Every project starts with a $125 on-site quote. If you hire us, that full $125 is credited toward your project total. Plans change? No problem &mdash; just let us know at least 24 hours before your visit and we&rsquo;ll give you a full refund.</p>
+    <p class="quote-note reveal"><strong>Diagnostic visits:</strong> Every project starts with a $125 diagnostic fee. We come out, find what&rsquo;s wrong, and give you a quote for the fix on-site. If you hire us, that full $125 is credited toward your project total. Plans change? No problem &mdash; just let us know at least 24 hours before your visit and we&rsquo;ll give you a full refund.</p>
   </div>
 </section>
 
@@ -558,8 +569,8 @@
       <div class="contact-info">
         <p class="eyebrow">Get In Touch</p>
         <h2>Let's fix your system.</h2>
-        <p>Tell us what's going on and where you're located — we'll follow up with next steps or a quote.</p>
-        <p class="contact-quote-note"><strong>Quotes are $125</strong>, credited toward your project if you move forward. Plans change? No problem &mdash; just let us know at least 24 hours before your visit and we&rsquo;ll give you a full refund.</p>
+        <p>Tell us what's going on and where you're located — we'll follow up with next steps or set up a diagnostic visit.</p>
+        <p class="contact-quote-note"><strong>Diagnostic visits are $125</strong>. We find the problem and quote the fix on-site, and the $125 is credited toward your project if you move forward. Plans change? No problem &mdash; just let us know at least 24 hours before your visit and we&rsquo;ll give you a full refund.</p>
         <div class="contact-line">
           <div class="ico">📞</div>
           <div>
@@ -611,7 +622,7 @@
         <textarea id="message" name="message" maxlength="2000" placeholder="Tell us about the issue or project..."></textarea>
         <button type="submit" id="contactSubmit">Send Request</button>
         <p id="formError" class="form-error" role="alert" hidden>Sorry, something went wrong sending your request. Please try again or call us at <a href="tel:+14699872926">(469) 987-2926</a>.</p>
-        <p class="book-link-note">Ready to schedule? <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener">Book your quote visit &rarr;</a></p>
+        <p class="book-link-note">Ready to schedule? <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener">Book your diagnostic visit &rarr;</a></p>
       </form>
     </div>
   </div>
@@ -643,7 +654,7 @@
 </script>
 
 <script>
-  // Google Analytics: count clicks on "Book a Quote" links (Square booking)
+  // Google Analytics: count clicks on "Book a Diagnostic" links (Square booking)
   document.querySelectorAll('a[href*="book.squareup.com"]').forEach(function (a) {
     a.addEventListener('click', function () {
       if (typeof gtag === 'function') {

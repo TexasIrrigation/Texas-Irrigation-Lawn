@@ -297,6 +297,17 @@
     .service-grid{grid-template-columns:1fr;}
     .stat-grid{grid-template-columns:1fr 1fr;}
   }
+
+  /* Header fit on medium screens */
+  .call-btn{white-space:nowrap;}
+  @media (min-width:901px) and (max-width:1000px){ nav ul{gap:20px;} .header-inner{gap:16px;} }
+  @media (min-width:641px) and (max-width:900px){
+    nav{position:fixed; top:78px; left:0; right:0; background:var(--cream); flex-direction:column; padding:20px 32px; border-bottom:1px solid rgba(14,42,71,0.1); display:none;}
+    nav.open{display:flex;}
+    nav ul{flex-direction:column; gap:18px; width:100%;}
+    .nav-toggle{display:block; order:3; margin-left:16px;}
+    .call-btn{margin-left:auto;}
+  }
 </style>
 </head>
 <body>
@@ -319,7 +330,7 @@
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
-    <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener" class="call-btn">Book a Quote</a>
+    <a href="https://book.squareup.com/appointments/l48rvc8wivq29q/location/LE9EJTRK4HQ0P/services/WEV3MMVBJQF6XAEQYTHLMBZJ" target="_blank" rel="noopener" class="call-btn">Book a Diagnostic</a>
   </div>
 </header>
 
@@ -418,7 +429,7 @@
 </script>
 
 <script>
-  // Google Analytics: count clicks on "Book a Quote" links (Square booking)
+  // Google Analytics: count clicks on "Book a Diagnostic" links (Square booking)
   document.querySelectorAll('a[href*="book.squareup.com"]').forEach(function (a) {
     a.addEventListener('click', function () {
       if (typeof gtag === 'function') {
